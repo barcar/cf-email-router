@@ -7,6 +7,7 @@
   },
   {
     "to": "archive@example.com",
+    "discordWebhookUrl": [],
     "forwardTo": ["backup@example.com"]
   },
   {
@@ -14,6 +15,7 @@
     "discordWebhookUrl": [
       "https://discord.com/api/webhooks/ID/PRIMARY",
       "https://discord.com/api/webhooks/ID/MIRROR"
-    ]
+    ],
+    "forwardTo": []
   }
 ]
