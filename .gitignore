@@ -137,3 +137,6 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# Local copy of EMAIL_ROUTES (webhooks); paste minified JSON into Worker secret — never commit
+email-routes.local.json

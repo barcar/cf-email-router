@@ -1,0 +1,19 @@
+[
+  {
+    "to": ["support@example.com", "help@example.com"],
+    "from": "alerts@partner.com",
+    "discordWebhookUrl": ["https://discord.com/api/webhooks/ID/TOKEN"],
+    "forwardTo": ["inbox@example.com"]
+  },
+  {
+    "to": "archive@example.com",
+    "forwardTo": ["backup@example.com"]
+  },
+  {
+    "to": "*",
+    "discordWebhookUrl": [
+      "https://discord.com/api/webhooks/ID/PRIMARY",
+      "https://discord.com/api/webhooks/ID/MIRROR"
+    ]
+  }
+]

@@ -1,0 +1,18 @@
+{
+  "name": "cf-email-router",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Cloudflare Email Worker: post inbound mail to Discord, optional forward",
+  "main": "worker.js",
+  "scripts": {
+    "deploy": "wrangler deploy",
+    "dev": "wrangler dev"
+  },
+  "dependencies": {
+    "html-to-text": "^9.0.5",
+    "postal-mime": "^2.4.4"
+  },
+  "devDependencies": {
+    "wrangler": "^4.24.3"
+  }
+}
