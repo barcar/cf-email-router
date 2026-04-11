@@ -50,7 +50,9 @@ Routing is defined only via the **`EMAIL_ROUTES`** secret (JSON array; **first m
    - **`forwardTo`** (optional): JSON **array** of verified addresses — use `["a@b.com"]` even for one recipient. `forward_to` is an alias. Omit the key entirely if you do not forward on that route.
    - Each route must include **at least one** webhook URL or **at least one** forward address (after trimming empty strings). You can combine both on the same route.
 
-4. In the Cloudflare dashboard, configure **Email Routing** so the addresses you want hit this worker.
+4. In the Cloudflare dashboard, configure **Email Routing** so mail reaches this worker.
+
+   A practical pattern is a **catch-all** (or “send to Worker”) rule for your domain so **every** `local-part@yourdomain` is handled by the worker **without** adding each address—or each possible **From**—in Email Routing. You still decide what happens in **`EMAIL_ROUTES`**: match on envelope **`to`** (exact addresses or `"*"` last), and optionally **`from`** when you need sender-specific rules.
 
 ### Local reference copy
 
