@@ -32,6 +32,19 @@ function asList(value) {
   return Array.isArray(value) ? value : [value];
 }
 
+/** Same URL twice in discordWebhookUrl would post twice; dedupe preserves order. */
+function uniqueStrings(list) {
+  const seen = new Set();
+  const out = [];
+  for (const s of list) {
+    if (!seen.has(s)) {
+      seen.add(s);
+      out.push(s);
+    }
+  }
+  return out;
+}
+
 /**
  * @param {object} route
  * @param {string} messageTo
@@ -263,7 +276,7 @@ export default {
     }
 
     const fileLimit = discordFileLimitBytes(env);
-    for (const webhookUrl of dest.webhookUrls) {
+    for (const webhookUrl of uniqueStrings(dest.webhookUrls)) {
       await postToDiscord(webhookUrl, message, email, emailText, fileLimit);
     }
   },
