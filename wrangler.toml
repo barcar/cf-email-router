@@ -1,4 +1,4 @@
-name = "cf-email-router"
+name = "discord-router"
 main = "worker.js"
 compatibility_date = "2025-07-13"
 
