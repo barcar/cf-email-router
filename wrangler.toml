@@ -14,5 +14,11 @@ compatibility_date = "2026-04-10"
 # Optional plain vars (non-secret), e.g. under [vars]:
 #   DISCORD_FILE_LIMIT_BYTES — default 8000000 (8MB); raise for boosted Discord servers
 
-# [observability.logs]
-# enabled = true
+[observability]
+
+[observability.logs]
+enabled = true
+invocation_logs = true
+
+[observability.traces]
+enabled = true
