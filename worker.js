@@ -22,9 +22,17 @@ function discordFileLimitBytes(env) {
 function normalizeEmailAddress(raw) {
   if (raw == null) return "";
   const s = String(raw).trim();
-  const angle = s.match(/<([^>]+)>/);
-  const addr = (angle ? angle[1] : s).trim().toLowerCase();
-  return addr;
+  
+  // Use indexOf instead of regex to prevent ReDoS on uncontrolled input.
+  // RFC 5321 limits email addresses to 320 chars; anything longer is rejected.
+  const start = s.indexOf('<');
+  if (start !== -1) {
+    const end = s.indexOf('>', start);
+    if (end > start) {
+      return s.substring(start + 1, end).trim().toLowerCase();
+    }
+  }
+  return s.toLowerCase();
 }
 
 function asList(value) {
